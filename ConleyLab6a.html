@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <title>Wedding Banquet Planner</title>
+  </head>
+  <body>
+
+    <button onclick="planWedding()">Start Wedding Planner</button>
+    <script>
+    function planWedding() {
+
+      let guests = prompt("How Many Guests?");
+      let tables = prompt("How many tables?");
+
+      let perTable = Math.floor (guests/tables);
+      let remainder = guests % tables
+
+      let largerTables = remainder;
+      let smallerTables = tables - remainder;
+
+      let largerSize = perTable + 1;
+      let smallerSize= perTable
+
+      let response = `Your ${guests} guests will be seated as follows: `;
+
+    if (largerTables > 0) {
+     response += `${largerTables} tables of ${largerSize}`;
+    }
+
+    if (smallerTables > 0) {
+    if (largerTables > 0) response += ", and ";
+     response += `${smallerTables} tables of ${smallerSize}`;
+      }
+      
+      alert(response);
+    }
+    </script>
+  </body>
+</html>
